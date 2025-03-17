@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chronic Kidney Disease Result</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <style>
+        /* Background Image */
+        body {
+           
+            height: 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Heading Font */
+        .container-heading {
+            margin: 0;
+        }
+
+        .heading_font {
+            color: black;
+            font-family: 'Pacifico', cursive;
+            font-size: 50px;
+            font-weight: normal;
+        }
+
+        /* Result Container */
+        .results {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            width: 80%;
+            max-width: 600px;
+            margin-top: 20px;
+        }
+
+        /* Result Text */
+        .danger {
+            color: #ff0000;
+            font-size: 28px;
+        }
+
+        .safe {
+            color: #008000;
+            font-size: 28px;
+        }
+
+        /* GIF Styling */
+        .gif, .gif1 {
+            width: 200px;
+            height: auto;
+            margin-top: 20px;
+        }
+
+        /* Footer */
+        .footer-description {
+            font-size: 14px;
+            color: #555;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2 class='container-heading'><span class="heading_font">Chronic Kidney Disease Prediction</span></h2>
+    </div>
+
+    <div class="results">
+        {% if prediction==1 %}
+            <h1><span class='danger'>Oops! 🙁<br><br>You have CHRONIC KIDNEY DISEASE.<br><br>Please Consult a Doctor.</span></h1>
+            <img class="gif" src="{{ url_for('static', filename='no.gif')}}" alt="Chronic Kidney Disease Image">
+        {% elif prediction==0 %}
+            <h1><span class='safe'>🎉 Congratulations! 🎉<br><br>You DON'T have Chronic Kidney Disease.</span></h1>
+            <img class="gif1" src="{{ url_for('static', filename='yes2.webp')}}" alt="No Chronic Kidney Disease Image">
+        {% endif %}
+    </div>
+</body>
+
+</html>
